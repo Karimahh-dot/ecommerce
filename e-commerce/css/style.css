@@ -1,0 +1,457 @@
+/* Modern Dynamic E-Commerce Styles */
+:root {
+    --primary-color: #7b2cbf;
+    --primary-light: #9d4edd;
+    --secondary-color: #e0aaff;
+    --accent-color: #ff9e00;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+    --success-color: #38b000;
+    --danger-color: #e5383b;
+    --warning-color: #ffaa00;
+    --border-radius: 16px;
+    --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  /* Base Styles with Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    background-color: #f9f6ff;
+    color: var(--dark-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+  
+  /* Animated Gradient Background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+      rgba(123, 44, 191, 0.05) 0%, 
+      rgba(157, 78, 221, 0.05) 50%, 
+      rgba(255, 158, 0, 0.05) 100%);
+    z-index: -1;
+    animation: gradientShift 15s ease infinite;
+    background-size: 200% 200%;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Floating Particles Animation */
+  .particle {
+    position: fixed;
+    border-radius: 50%;
+    background: rgba(123, 44, 191, 0.2);
+    z-index: -1;
+    animation: float 15s infinite linear;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+  }
+  
+  /* Dynamic Header with Parallax Effect */
+  header {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .header-hidden {
+    transform: translateY(-100%);
+  }
+  
+  /* 3D Logo Effect */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+  }
+  
+  .logo:hover {
+    transform: scale(1.05) rotate(-2deg);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .logo i {
+    font-size: 1.8rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  }
+  
+  /* Interactive Cart Icon */
+  .cart-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: var(--transition);
+    backdrop-filter: blur(5px);
+  }
+  
+  .cart-icon:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px) rotate(10deg);
+  }
+  
+  .cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--accent-color);
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Animated Search Bar */
+  .search-container {
+    width: 100%;
+    padding: 1.5rem 0;
+    background: rgba(255, 255, 255, 0.9);
+    margin: 1rem 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .search-form {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .search-input {
+    flex: 1;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid rgba(233, 236, 239, 0.8);
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: var(--transition);
+    padding-right: 50px;
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateZ(0);
+  }
+  
+  .search-input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 4px rgba(123, 44, 191, 0.2);
+    transform: translateZ(10px);
+  }
+  
+  .search-btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+    transform: translateZ(5px);
+  }
+  
+  .search-btn:hover {
+    transform: translateZ(15px) rotate(15deg);
+    box-shadow: 0 5px 15px rgba(123, 44, 191, 0.4);
+  }
+  
+  /* Product Cards with Hover 3D Effect */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+    perspective: 1000px;
+  }
+  
+  .product-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    position: relative;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+  
+  .product-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(123, 44, 191, 0.1), rgba(255, 158, 0, 0.1));
+    opacity: 0;
+    transition: var(--transition);
+    z-index: -1;
+  }
+  
+  .product-card:hover::after {
+    opacity: 1;
+  }
+  
+  .product-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--success-color);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  /* Product Image Zoom Effect */
+  .product-image-container {
+    overflow: hidden;
+    height: 200px;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #f8f9fa;
+    padding: 1rem;
+    transition: transform 0.5s ease;
+  }
+  
+  .product-card:hover .product-image {
+    transform: scale(1.05);
+  }
+  
+  /* Price Tag Animation */
+  .product-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .product-price::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+  }
+  
+  .product-card:hover .product-price::after {
+    width: 100%;
+  }
+  
+  /* Add to Cart Button with Ripple Effect */
+  .add-to-cart {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 1;
+  }
+  
+  .add-to-cart::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+    z-index: -1;
+  }
+  
+  .add-to-cart:hover::before {
+    transform: translate(-50%, -50%) scale(20);
+  }
+  
+  .add-to-cart:hover {
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(123, 44, 191, 0.3);
+  }
+  
+  /* Floating Action Button */
+  .fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 20px rgba(123, 44, 191, 0.3);
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 999;
+    animation: floatUpDown 3s ease-in-out infinite;
+  }
+  
+  .fab:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 8px 30px rgba(123, 44, 191, 0.4);
+  }
+  
+  @keyframes floatUpDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .products-grid {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+    
+    .search-input {
+      padding: 0.7rem 1.2rem;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .products-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .product-card {
+      max-width: 100%;
+    }
+  }
+  
+
+  /* Style untuk tampilan stok */
+.stok-ada {
+  color: #28a745;
+  font-weight: bold;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.stok-sedikit {
+  color: #ffc107;
+  font-weight: bold;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  animation: pulse 1.5s infinite;
+}
+
+.stok-habis {
+  color: #dc3545;
+  font-weight: bold;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* Tombol disabled */
+.btn[disabled] {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
